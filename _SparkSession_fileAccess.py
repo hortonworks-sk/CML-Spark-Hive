@@ -34,18 +34,21 @@ sql3 = """
 alter table students ADD columns (dept String)
 """
 
-#spark.sql(sql3).show()
-
-spark.sql(sql1).show()
- 
-
-
 sql4 = """
 insert into students values (0, "math") 
 """
 
+sql5 = """
+select * from students 
+"""
+
+spark.sql(sql0).show()
+ 
+spark.sql(sql1).show()
+ 
+spark.sql(sql3).show()
+
 spark.sql(sql4).show()
  
-"""
-spark.sql(sql1).show()
-"""
+spark.sql(sql5).show()
+ 
