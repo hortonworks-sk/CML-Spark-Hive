@@ -20,7 +20,7 @@ COMMENT 'Student Names'
 ROW FORMAT DELIMITED
 FIELDS TERMINATED BY ','
 STORED AS TEXTFILE
-LOCATION 's3a://cdp-sandbox-default-se/sbk-temp'
+LOCATION 's3a://cdp-sandbox-default-se/sbk-temp/students'
 """    
 
 sql2 = """

@@ -5,12 +5,11 @@ spark = SparkSession.builder \
      .master("local[*]") \
    .config("spark.hadoop.fs.s3a.s3guard.ddb.region","us-east-2") \
    .config("spark.yarn.access.hadoopFileSystems","s3a://cdp-sandbox-default-se") \
-   .config("spark.hadoop.yarn.resourcemanager.principal", "skiaie") \
+    .config("spark.sql.warehouse.dir", "s3a://cdp-sandbox-default-se") \
+    .config("spark.hadoop.yarn.resourcemanager.principal", "skiaie") \
    .getOrCreate()  
     
     
-spark.sql("SHOW databases").show()
-  
 sql0 = """
 drop table students
 """   
@@ -22,7 +21,7 @@ COMMENT 'Student Names'
 ROW FORMAT DELIMITED
 FIELDS TERMINATED BY ','
 STORED AS TEXTFILE
-LOCATION 's3a://cdp-sandbox-default-se/sbk-temp'
+LOCATION 's3a://cdp-sandbox-default-se/sbk-temp/students'
 """    
 
 sql2 = """
